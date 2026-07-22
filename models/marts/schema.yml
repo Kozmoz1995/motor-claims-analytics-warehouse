@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Conformed calendar dimension shared by collision processes.
+    columns:
+      - name: date_key
+        tests: [unique, not_null]
+      - name: full_date
+        tests: [unique, not_null]
+  - name: dim_location
+    description: Star-schema location dimension at street/coordinate grain.
+    columns:
+      - name: location_key
+        tests: [unique, not_null]
+  - name: fact_collision
+    description: One row per collision.
+    columns:
+      - name: collision_key
+        tests: [unique, not_null]
+      - name: crash_date_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: severity_band
+        tests:
+          - accepted_values:
+              values: ['Fatal', 'Severe injury', 'Injury', 'Property damage only']
