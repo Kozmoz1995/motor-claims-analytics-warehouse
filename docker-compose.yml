@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: warehouse
+      POSTGRES_PASSWORD: warehouse_dev_only
+      POSTGRES_DB: motor_dwh
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/raw_schema.sql:/docker-entrypoint-initdb.d/01_raw_schema.sql:ro
+      - ./sql/snowflake_schema.sql:/docker-entrypoint-initdb.d/02_snowflake.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U warehouse -d motor_dwh"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
