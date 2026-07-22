@@ -1,0 +1,12 @@
+motor_claims_warehouse:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: warehouse
+      password: warehouse_dev_only
+      dbname: motor_dwh
+      schema: public
+      threads: 4
