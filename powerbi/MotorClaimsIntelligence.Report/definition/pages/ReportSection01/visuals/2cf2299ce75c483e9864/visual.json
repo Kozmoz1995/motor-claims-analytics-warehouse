@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "2cf2299ce75c483e9864",
+  "position": {
+    "x": 24,
+    "y": 220,
+    "z": 6000,
+    "height": 460,
+    "width": 585,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Borough"
+                }
+              },
+              "queryRef": "CollisionOverview.Borough",
+              "nativeQueryRef": "Borough",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Total Collisions"
+                }
+              },
+              "queryRef": "CollisionOverview.Total Collisions",
+              "nativeQueryRef": "Total Collisions"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

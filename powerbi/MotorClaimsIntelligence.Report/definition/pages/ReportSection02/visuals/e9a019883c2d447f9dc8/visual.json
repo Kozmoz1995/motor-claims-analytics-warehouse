@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "e9a019883c2d447f9dc8",
+  "position": {
+    "x": 968,
+    "y": 24,
+    "z": 5000,
+    "height": 82,
+    "width": 280,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Risk Segment"
+                }
+              },
+              "queryRef": "CollisionOverview.Risk Segment",
+              "nativeQueryRef": "Risk Segment"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Risk segment'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

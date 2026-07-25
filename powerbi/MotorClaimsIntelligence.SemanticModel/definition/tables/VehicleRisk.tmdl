@@ -1,0 +1,105 @@
+table VehicleRisk
+	lineageTag: 9dc3778f-3c90-4590-b166-9b3b1bd48813
+
+	measure 'Vehicle Involvements' = SUM('VehicleRisk'[Vehicle Involvements])
+		formatString: #,##0
+		lineageTag: d8959d96-7057-44d6-b278-ede3f1a85ce5
+
+	measure 'Vehicle Severe Rate' = DIVIDE(SUM('VehicleRisk'[Severe Collisions]), SUM('VehicleRisk'[Collisions]))
+		formatString: 0.0%
+		lineageTag: 7d92159f-5e21-4b67-b51c-edc44bad2e81
+
+	measure 'Avg Vehicle Severity' = AVERAGE('VehicleRisk'[Avg Severity Score])
+		formatString: #,##0.00
+		lineageTag: bd5e9cc4-e0da-4a6e-a719-85c6a26a67fd
+
+	column 'Vehicle Type'
+		dataType: string
+		lineageTag: e4207fd7-465a-4590-81b3-0c7349db6da8
+		summarizeBy: none
+		sourceColumn: vehicle_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vehicle Involvements'
+		dataType: int64
+		lineageTag: 5eab3722-de9f-4cc5-8322-55c2ef286259
+		summarizeBy: none
+		sourceColumn: vehicle_involvements
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Collisions'
+		dataType: int64
+		lineageTag: 34f7b5c5-e6da-442f-a1ca-c66370fc3212
+		summarizeBy: none
+		sourceColumn: collisions
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Severe Collisions'
+		dataType: int64
+		lineageTag: ddae03f8-3652-40e1-8120-0dfe61ea73aa
+		summarizeBy: none
+		sourceColumn: severe_collisions
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Injured'
+		dataType: int64
+		lineageTag: e60f446d-37f4-4f4b-bbcc-312770dc07cc
+		summarizeBy: none
+		sourceColumn: persons_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Killed'
+		dataType: int64
+		lineageTag: eb3ca50a-00fd-41cc-86f3-9dca4641d804
+		summarizeBy: none
+		sourceColumn: persons_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Avg Severity Score'
+		dataType: double
+		lineageTag: 74db86c8-7e30-4be5-b709-7debad61f944
+		summarizeBy: none
+		sourceColumn: avg_severity_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Severe Collision Rate'
+		dataType: double
+		lineageTag: d69bd68c-85be-4190-bdb4-0f3636aa149f
+		summarizeBy: none
+		sourceColumn: severe_collision_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Severity Rank'
+		dataType: int64
+		lineageTag: 3a35666b-3b1a-4f9a-986a-61231f21bef7
+		summarizeBy: none
+		sourceColumn: severity_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Risk Quartile'
+		dataType: int64
+		lineageTag: cbf67e6a-5160-405f-8155-613f0d99de9d
+		summarizeBy: none
+		sourceColumn: risk_quartile
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VehicleRisk = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database),
+				    Data = Source{[Schema="reporting",Item="rpt_vehicle_risk"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

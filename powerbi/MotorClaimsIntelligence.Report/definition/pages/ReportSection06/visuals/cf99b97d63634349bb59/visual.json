@@ -1,0 +1,171 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "cf99b97d63634349bb59",
+  "position": {
+    "x": 24,
+    "y": 200,
+    "z": 4000,
+    "height": 480,
+    "width": 1224,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Collision ID"
+                }
+              },
+              "queryRef": "CollisionOverview.Collision ID",
+              "nativeQueryRef": "Collision ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Crash Date"
+                }
+              },
+              "queryRef": "CollisionOverview.Crash Date",
+              "nativeQueryRef": "Crash Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Crash Time"
+                }
+              },
+              "queryRef": "CollisionOverview.Crash Time",
+              "nativeQueryRef": "Crash Time"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Borough"
+                }
+              },
+              "queryRef": "CollisionOverview.Borough",
+              "nativeQueryRef": "Borough"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Street"
+                }
+              },
+              "queryRef": "CollisionOverview.Street",
+              "nativeQueryRef": "Street"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Primary Factor"
+                }
+              },
+              "queryRef": "CollisionOverview.Primary Factor",
+              "nativeQueryRef": "Primary Factor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Severity Band"
+                }
+              },
+              "queryRef": "CollisionOverview.Severity Band",
+              "nativeQueryRef": "Severity Band"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "People Injured"
+                }
+              },
+              "queryRef": "CollisionOverview.People Injured",
+              "nativeQueryRef": "People Injured"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "People Killed"
+                }
+              },
+              "queryRef": "CollisionOverview.People Killed",
+              "nativeQueryRef": "People Killed"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

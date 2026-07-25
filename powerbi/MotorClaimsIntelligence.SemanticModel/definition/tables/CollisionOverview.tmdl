@@ -1,0 +1,245 @@
+table CollisionOverview
+	lineageTag: 4ce7c1f1-8072-47fe-9a14-549f389e30df
+
+	measure 'Total Collisions' = COUNTROWS('CollisionOverview')
+		formatString: #,##0
+		lineageTag: 80753a2c-df16-4800-ab27-444fb74a9a46
+
+	measure 'Severe Collisions' = CALCULATE([Total Collisions], 'CollisionOverview'[Is Severe] = TRUE())
+		formatString: #,##0
+		lineageTag: 5758128c-7652-444a-94d9-f2f5683bdf25
+
+	measure 'Severe Collision Rate' = DIVIDE([Severe Collisions], [Total Collisions])
+		formatString: 0.0%
+		lineageTag: 09b60244-42a2-408b-b4fc-0aebf5739fad
+
+	measure 'People Injured' = SUM('CollisionOverview'[People Injured])
+		formatString: #,##0
+		lineageTag: 9130cbda-945c-4d0c-8821-6400b6132ec8
+
+	measure 'People Killed' = SUM('CollisionOverview'[People Killed])
+		formatString: #,##0
+		lineageTag: e0194c11-3b5a-414f-8d99-e9a59e7814a9
+
+	measure 'Pedestrians Injured' = SUM('CollisionOverview'[Pedestrians Injured])
+		formatString: #,##0
+		lineageTag: b7a46d71-68e8-4a44-abc0-adc9b10f5923
+
+	measure 'Cyclists Injured' = SUM('CollisionOverview'[Cyclists Injured])
+		formatString: #,##0
+		lineageTag: b917bb20-4c7f-4895-966b-483a4a566639
+
+	measure 'Avg Severity Score' = AVERAGE('CollisionOverview'[Severity Score])
+		formatString: #,##0.00
+		lineageTag: 7d0bbdce-ffd6-4c7c-bb41-508f62b66209
+
+	column 'Collision ID'
+		dataType: string
+		lineageTag: 362928dc-8a45-4ec5-9aab-8de2cb595103
+		summarizeBy: none
+		sourceColumn: collision_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Crash Date'
+		dataType: dateTime
+		lineageTag: 04aac0e5-d86e-46ce-a6b2-501ae0a4ce15
+		summarizeBy: none
+		sourceColumn: crash_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year'
+		dataType: int64
+		lineageTag: 0907d4f6-82af-4ba9-bf98-740d6b537119
+		summarizeBy: none
+		sourceColumn: year_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter'
+		dataType: int64
+		lineageTag: a44cc881-0d78-480a-b079-01ad8152be4a
+		summarizeBy: none
+		sourceColumn: quarter_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		dataType: int64
+		lineageTag: a0bb8bdf-f070-4845-b2c9-948d3e3ba2b2
+		summarizeBy: none
+		sourceColumn: month_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month'
+		dataType: string
+		lineageTag: 4600d5ca-1ef9-420c-b22a-88f3cce5c15d
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day'
+		dataType: string
+		lineageTag: 8a2e2546-ade1-4a5f-9ae8-9e3adc018b9a
+		summarizeBy: none
+		sourceColumn: day_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Weekend'
+		dataType: boolean
+		lineageTag: 62e28cda-2a05-4067-8e5d-76e20f56956d
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Crash Time'
+		dataType: int64
+		lineageTag: 20d4c0ed-46b0-44f4-a585-06c27e7226b3
+		summarizeBy: none
+		sourceColumn: crash_time_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Night'
+		dataType: boolean
+		lineageTag: 1ff7e41f-0ca1-46be-ad1e-38eb8ced394d
+		summarizeBy: none
+		sourceColumn: is_night
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Borough'
+		dataType: string
+		lineageTag: 208e0227-ec03-47db-86f0-db60d99864fe
+		summarizeBy: none
+		sourceColumn: borough
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ZIP Code'
+		dataType: string
+		lineageTag: 45b06417-55d5-4356-bd5e-040752c1c89b
+		summarizeBy: none
+		sourceColumn: zip_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Street'
+		dataType: string
+		lineageTag: 5df836b3-d141-46d2-8b82-26995c13fab2
+		summarizeBy: none
+		sourceColumn: on_street_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cross Street'
+		dataType: string
+		lineageTag: 97289511-268c-4620-8d55-b91ad5c1b68a
+		summarizeBy: none
+		sourceColumn: cross_street_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latitude'
+		dataType: double
+		lineageTag: 08585fae-2ed7-4bfc-a09d-cf2a7b582f75
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Longitude'
+		dataType: double
+		lineageTag: 76e44ee9-807e-4bb7-92c2-ccc97220bdc2
+		summarizeBy: none
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Factor'
+		dataType: string
+		lineageTag: aa109c57-dd04-49c6-84a4-003922bcce7f
+		summarizeBy: none
+		sourceColumn: primary_factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Severity Band'
+		dataType: string
+		lineageTag: e4bbb680-ddbc-4014-9b7b-6e8ac0f08615
+		summarizeBy: none
+		sourceColumn: severity_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Severe'
+		dataType: boolean
+		lineageTag: 899dc378-fe4b-406d-bd29-65be8fc7c6cc
+		summarizeBy: none
+		sourceColumn: is_severe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Injured'
+		dataType: int64
+		lineageTag: 4f790bdf-1286-4985-bcf2-869232b28fd3
+		summarizeBy: none
+		sourceColumn: persons_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Killed'
+		dataType: int64
+		lineageTag: a8f4ac3f-4027-417a-9858-919cfaac32ad
+		summarizeBy: none
+		sourceColumn: persons_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pedestrians Injured'
+		dataType: int64
+		lineageTag: 947d1edd-6b6d-4b2b-9698-1cd998689da4
+		summarizeBy: none
+		sourceColumn: pedestrians_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cyclists Injured'
+		dataType: int64
+		lineageTag: 4aba2b49-cbbf-442b-83fe-b2a147f1a4d5
+		summarizeBy: none
+		sourceColumn: cyclists_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Severity Score'
+		dataType: double
+		lineageTag: 736e4fc4-2ea1-4cc8-ba65-be1e2dbb3029
+		summarizeBy: none
+		sourceColumn: severity_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Risk Segment'
+		dataType: string
+		lineageTag: 8786c790-663f-4244-a4f8-4a423ecd1a43
+		summarizeBy: none
+		sourceColumn: risk_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CollisionOverview = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database),
+				    Data = Source{[Schema="reporting",Item="rpt_collision_overview"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

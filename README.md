@@ -13,6 +13,8 @@ Give road-safety and motor-insurance analysts a consistent model for answering:
 - How many vehicles and people are involved in each collision?
 - How do collision, injury, and fatality trends change over time?
 - Which data-quality issues could distort those conclusions?
+- Which explainable anomaly signals should be prioritized for analyst review?
+- Which vehicle types and locations are high-volume versus high-severity?
 
 ## Sources
 
@@ -34,7 +36,8 @@ flowchart TD
     D --> E[dbt intermediate models]
     E --> F[Star schema marts]
     E --> G[Snowflake alternative]
-    F --> H[Analytics and BI]
+    F --> H[SQL reporting views]
+    H --> I[Power BI PBIP dashboard]
 ```
 
 ## Dimensional model
@@ -97,6 +100,37 @@ dbt docs generate
 | `intermediate` | Reusable joins and derived severity rules |
 | `marts` | Star schema facts and dimensions for analytics |
 | `snowflake` | Normalized location hierarchy for comparison |
+| `reporting` | Power BI-ready views, KPI contracts, and explainable risk proxies |
+
+## SQL analytics
+
+The numbered files in [`sql/`](sql/) form an auditable analysis path:
+
+1. data quality and reconciliation;
+2. executive KPIs and year-over-year comparison;
+3. severity percentiles, vehicle ranking, and risk quartiles;
+4. explainable anomaly-signal proxies;
+5. hotspot ranking and rolling 30-day trends;
+6. the Power BI serving contract.
+
+The analysis demonstrates CTEs, conditional aggregation, `FILTER`, `LAG`,
+rolling windows, `PERCENTILE_CONT`, `DENSE_RANK`, and `NTILE`.
+
+## Power BI dashboard
+
+The source-controlled PBIP project is available at
+[`powerbi/MotorClaimsIntelligence.pbip`](powerbi/MotorClaimsIntelligence.pbip).
+It contains six interactive pages and 41 native visuals:
+
+- Executive Overview
+- Severity & Risk
+- Anomaly Signal Explorer
+- Vehicle Risk Profile
+- Geographic Hotspots
+- Collision Detail
+
+See [the dashboard guide](docs/powerbi_dashboard.md) and
+[DAX catalogue](powerbi_measures.md).
 
 ## Repository map
 
@@ -104,7 +138,9 @@ dbt docs generate
 src/motor_dwh/       Extraction and quality logic
 data/sample/         Small deterministic fixtures
 models/              dbt staging, intermediate, and marts
-sql/                 DDL and analyst queries
+models/reporting/    Power BI-ready dbt views
+sql/                 Numbered SQL analyses and BI contract
+powerbi/             PBIP report and TMDL semantic model
 docs/                Requirements, grain, and modelling decisions
 tests/               Unit tests
 ```
@@ -121,7 +157,11 @@ tests/               Unit tests
 
 ## Portfolio skills demonstrated
 
-Dimensional modelling, fact grain selection, conformed dimensions, surrogate keys, star vs snowflake trade-offs, incremental ingestion, idempotency, data contracts, data-quality tests, SQL analytics, PostgreSQL, dbt, Docker, and CI.
+Dimensional modelling, fact grain selection, conformed dimensions, surrogate
+keys, star vs snowflake trade-offs, incremental ingestion, idempotency, data
+contracts, data-quality tests, advanced PostgreSQL analytics, window functions,
+dbt reporting views, DAX, PBIP/PBIR/TMDL, Power BI interaction design, Docker,
+and CI.
 
 ## License
 

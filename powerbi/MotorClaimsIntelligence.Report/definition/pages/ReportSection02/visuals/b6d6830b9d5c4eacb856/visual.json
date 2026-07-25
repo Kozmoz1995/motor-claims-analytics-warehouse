@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "b6d6830b9d5c4eacb856",
+  "position": {
+    "x": 260,
+    "y": 80,
+    "z": 2000,
+    "height": 108,
+    "width": 220,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "People Killed"
+                }
+              },
+              "queryRef": "CollisionOverview.People Killed",
+              "nativeQueryRef": "People Killed"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

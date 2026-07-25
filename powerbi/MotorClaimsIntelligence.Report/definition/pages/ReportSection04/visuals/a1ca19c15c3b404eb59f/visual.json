@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "a1ca19c15c3b404eb59f",
+  "position": {
+    "x": 968,
+    "y": 24,
+    "z": 3000,
+    "height": 82,
+    "width": 280,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Risk Quartile"
+                }
+              },
+              "queryRef": "VehicleRisk.Risk Quartile",
+              "nativeQueryRef": "Risk Quartile"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Risk quartile'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

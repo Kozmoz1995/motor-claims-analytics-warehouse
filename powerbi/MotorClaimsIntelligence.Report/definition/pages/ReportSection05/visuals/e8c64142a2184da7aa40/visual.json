@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "e8c64142a2184da7aa40",
+  "position": {
+    "x": 24,
+    "y": 220,
+    "z": 4000,
+    "height": 460,
+    "width": 660,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "Street"
+                }
+              },
+              "queryRef": "Hotspot.Street",
+              "nativeQueryRef": "Street",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "Hotspot Collisions"
+                }
+              },
+              "queryRef": "Hotspot.Hotspot Collisions",
+              "nativeQueryRef": "Hotspot Collisions"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

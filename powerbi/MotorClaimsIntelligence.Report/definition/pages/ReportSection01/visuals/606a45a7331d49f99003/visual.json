@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "606a45a7331d49f99003",
+  "position": {
+    "x": 633,
+    "y": 220,
+    "z": 7000,
+    "height": 460,
+    "width": 615,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "CollisionOverview.Month",
+              "nativeQueryRef": "Month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Total Collisions"
+                }
+              },
+              "queryRef": "CollisionOverview.Total Collisions",
+              "nativeQueryRef": "Total Collisions"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

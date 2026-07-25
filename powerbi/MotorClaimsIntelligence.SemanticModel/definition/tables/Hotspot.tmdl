@@ -1,0 +1,117 @@
+table Hotspot
+	lineageTag: 936ad376-37d3-4214-a9a0-cf9a34a3915a
+
+	measure 'Hotspot Collisions' = SUM('Hotspot'[Collisions])
+		formatString: #,##0
+		lineageTag: 21268903-7d58-4668-babf-df8dc3511d22
+
+	measure 'Hotspot Severe Collisions' = SUM('Hotspot'[Severe Collisions])
+		formatString: #,##0
+		lineageTag: 8c228e7b-47e1-4aff-8581-77f381c65a85
+
+	column 'Borough'
+		dataType: string
+		lineageTag: 38124b7c-a4b0-4fd7-b8be-bf5eb3554ecf
+		summarizeBy: none
+		sourceColumn: borough
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ZIP Code'
+		dataType: string
+		lineageTag: 917c7802-2c54-4350-a98c-77a0ad139d59
+		summarizeBy: none
+		sourceColumn: zip_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Street'
+		dataType: string
+		lineageTag: e22f0089-7b45-4b64-bd78-b84974510030
+		summarizeBy: none
+		sourceColumn: on_street_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cross Street'
+		dataType: string
+		lineageTag: 8aaa70ea-1c56-4d2b-a5a0-1e4ec156305b
+		summarizeBy: none
+		sourceColumn: cross_street_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latitude'
+		dataType: double
+		lineageTag: 56c6ddc4-7922-4663-918f-c06eb0d4a661
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Longitude'
+		dataType: double
+		lineageTag: 2f45c800-784c-4a3f-bfaa-20373d2a7623
+		summarizeBy: none
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Collisions'
+		dataType: int64
+		lineageTag: f4394642-931e-40b8-8187-38abe352644b
+		summarizeBy: none
+		sourceColumn: collisions
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Severe Collisions'
+		dataType: int64
+		lineageTag: 38eb933b-23e3-4a24-983b-b65bed704ad6
+		summarizeBy: none
+		sourceColumn: severe_collisions
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Injured'
+		dataType: int64
+		lineageTag: 361628ca-c640-4663-a4f0-340c39d3d744
+		summarizeBy: none
+		sourceColumn: persons_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Killed'
+		dataType: int64
+		lineageTag: fb833582-3436-4da2-a865-0c57d2cac0ee
+		summarizeBy: none
+		sourceColumn: persons_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Severe Collision Rate'
+		dataType: double
+		lineageTag: 751c49b4-7635-4c94-a92b-998426004142
+		summarizeBy: none
+		sourceColumn: severe_collision_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Borough Rank'
+		dataType: int64
+		lineageTag: a79bc4a4-5e0b-429a-918e-58293b5f779d
+		summarizeBy: none
+		sourceColumn: borough_hotspot_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Hotspot = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database),
+				    Data = Source{[Schema="reporting",Item="rpt_hotspot"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

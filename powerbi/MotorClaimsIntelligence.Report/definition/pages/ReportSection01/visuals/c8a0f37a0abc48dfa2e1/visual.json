@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "c8a0f37a0abc48dfa2e1",
+  "position": {
+    "x": 732,
+    "y": 80,
+    "z": 4000,
+    "height": 108,
+    "width": 220,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Severe Collision Rate"
+                }
+              },
+              "queryRef": "CollisionOverview.Severe Collision Rate",
+              "nativeQueryRef": "Severe Collision Rate"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

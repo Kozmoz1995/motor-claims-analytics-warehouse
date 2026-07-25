@@ -1,0 +1,5 @@
+expression Server = "localhost" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 935a318d-7d52-44a8-be3a-6d3980860805
+
+expression Database = "motor_dwh" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 40e5f30c-699e-4f85-a399-e24b8454a646

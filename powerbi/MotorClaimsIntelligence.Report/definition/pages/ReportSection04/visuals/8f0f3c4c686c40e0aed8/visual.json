@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "8f0f3c4c686c40e0aed8",
+  "position": {
+    "x": 708,
+    "y": 220,
+    "z": 5000,
+    "height": 460,
+    "width": 540,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Vehicle Type"
+                }
+              },
+              "queryRef": "VehicleRisk.Vehicle Type",
+              "nativeQueryRef": "Vehicle Type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Collisions"
+                }
+              },
+              "queryRef": "VehicleRisk.Collisions",
+              "nativeQueryRef": "Collisions"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Severe Collisions"
+                }
+              },
+              "queryRef": "VehicleRisk.Severe Collisions",
+              "nativeQueryRef": "Severe Collisions"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Severe Collision Rate"
+                }
+              },
+              "queryRef": "VehicleRisk.Severe Collision Rate",
+              "nativeQueryRef": "Severe Collision Rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Severity Rank"
+                }
+              },
+              "queryRef": "VehicleRisk.Severity Rank",
+              "nativeQueryRef": "Severity Rank"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Risk Quartile"
+                }
+              },
+              "queryRef": "VehicleRisk.Risk Quartile",
+              "nativeQueryRef": "Risk Quartile"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

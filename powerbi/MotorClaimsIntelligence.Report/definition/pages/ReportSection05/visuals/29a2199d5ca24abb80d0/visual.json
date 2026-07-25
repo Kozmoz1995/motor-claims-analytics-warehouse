@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "29a2199d5ca24abb80d0",
+  "position": {
+    "x": 708,
+    "y": 220,
+    "z": 5000,
+    "height": 460,
+    "width": 540,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "Borough"
+                }
+              },
+              "queryRef": "Hotspot.Borough",
+              "nativeQueryRef": "Borough"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "ZIP Code"
+                }
+              },
+              "queryRef": "Hotspot.ZIP Code",
+              "nativeQueryRef": "ZIP Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "Street"
+                }
+              },
+              "queryRef": "Hotspot.Street",
+              "nativeQueryRef": "Street"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "Collisions"
+                }
+              },
+              "queryRef": "Hotspot.Collisions",
+              "nativeQueryRef": "Collisions"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "Severe Collision Rate"
+                }
+              },
+              "queryRef": "Hotspot.Severe Collision Rate",
+              "nativeQueryRef": "Severe Collision Rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hotspot"
+                    }
+                  },
+                  "Property": "Borough Rank"
+                }
+              },
+              "queryRef": "Hotspot.Borough Rank",
+              "nativeQueryRef": "Borough Rank"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "e7f7f8b0d1d640ea9e16",
+  "position": {
+    "x": 24,
+    "y": 220,
+    "z": 6000,
+    "height": 460,
+    "width": 500,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Risk Segment"
+                }
+              },
+              "queryRef": "CollisionOverview.Risk Segment",
+              "nativeQueryRef": "Risk Segment",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Total Collisions"
+                }
+              },
+              "queryRef": "CollisionOverview.Total Collisions",
+              "nativeQueryRef": "Total Collisions"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

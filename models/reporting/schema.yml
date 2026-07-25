@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: rpt_collision_overview
+    description: Power BI-ready collision grain with severity and risk attributes.
+    columns:
+      - name: collision_key
+        tests: [unique, not_null]
+      - name: risk_segment
+        tests:
+          - accepted_values:
+              values: ['Low', 'Medium', 'High', 'Critical']
+
+  - name: rpt_vehicle_risk
+    description: Vehicle-level benchmark and risk quartile view.
+    columns:
+      - name: vehicle_type
+        tests: [not_null]
+
+  - name: rpt_hotspot
+    description: Street-level collision and severity hotspot view.
+
+  - name: rpt_fraud_signal_proxy
+    description: Explainable anomaly signals; not a fraud determination.
+    columns:
+      - name: collision_key
+        tests: [unique, not_null]
+      - name: review_status
+        tests:
+          - accepted_values:
+              values: ['Review', 'Standard']
+

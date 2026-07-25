@@ -1,0 +1,109 @@
+table AnomalySignals
+	lineageTag: 0c779b94-0216-4019-98fb-75937935a5bc
+
+	measure 'Review Collisions' = CALCULATE(COUNTROWS('AnomalySignals'), 'AnomalySignals'[Review Status] = "Review")
+		formatString: #,##0
+		lineageTag: 76086777-ff49-437e-9399-e7631efcec04
+
+	measure 'Review Rate' = DIVIDE([Review Collisions], COUNTROWS('AnomalySignals'))
+		formatString: 0.0%
+		lineageTag: 877ddaa8-d217-4b3f-a132-fc0d0763426c
+
+	measure 'Night Events' = CALCULATE(COUNTROWS('AnomalySignals'), 'AnomalySignals'[Is Night] = TRUE())
+		formatString: #,##0
+		lineageTag: ef413a9c-8656-4ffa-9057-8906dd172d4a
+
+	measure 'Multi Vehicle Events' = CALCULATE(COUNTROWS('AnomalySignals'), 'AnomalySignals'[Vehicle Count] >= 3)
+		formatString: #,##0
+		lineageTag: 0d6acde9-4929-43d8-b607-6a38c95d7d1f
+
+	column 'Collision ID'
+		dataType: string
+		lineageTag: 4dc14fa1-a1b0-49de-a701-9659aa173450
+		summarizeBy: none
+		sourceColumn: collision_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Crash Date'
+		dataType: dateTime
+		lineageTag: bf1ae56e-5525-4d41-8121-8b5ab23138e6
+		summarizeBy: none
+		sourceColumn: crash_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Borough'
+		dataType: string
+		lineageTag: c26f92e8-7cad-4fb5-954f-4f3bc0bc4da5
+		summarizeBy: none
+		sourceColumn: borough
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Factor'
+		dataType: string
+		lineageTag: 358f475e-6bc2-4304-b900-39c11baad13f
+		summarizeBy: none
+		sourceColumn: primary_factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Night'
+		dataType: boolean
+		lineageTag: 964ba8bc-dd29-494a-9ba2-e8e3a249942c
+		summarizeBy: none
+		sourceColumn: is_night
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vehicle Count'
+		dataType: int64
+		lineageTag: 4cc260cb-ad6f-4dea-9da2-58e6be7c8200
+		summarizeBy: none
+		sourceColumn: vehicle_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Injured'
+		dataType: int64
+		lineageTag: c5e66ec9-5a1f-41c6-9a8c-132a6c1a50c0
+		summarizeBy: none
+		sourceColumn: persons_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'People Killed'
+		dataType: int64
+		lineageTag: 9fe7e56f-cd20-488a-978f-dbc6033ea573
+		summarizeBy: none
+		sourceColumn: persons_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Anomaly Score'
+		dataType: int64
+		lineageTag: 79f39095-f1e1-42a0-a8c5-8bde004df082
+		summarizeBy: none
+		sourceColumn: anomaly_signal_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Review Status'
+		dataType: string
+		lineageTag: 32348ce2-2705-4c0d-8ea7-938c131bdc28
+		summarizeBy: none
+		sourceColumn: review_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AnomalySignals = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database),
+				    Data = Source{[Schema="reporting",Item="rpt_fraud_signal_proxy"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

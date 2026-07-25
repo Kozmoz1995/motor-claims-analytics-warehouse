@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "418a1a8bed32418e86b4",
+  "position": {
+    "x": 24,
+    "y": 220,
+    "z": 6000,
+    "height": 460,
+    "width": 585,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "Borough"
+                }
+              },
+              "queryRef": "AnomalySignals.Borough",
+              "nativeQueryRef": "Borough",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "Review Collisions"
+                }
+              },
+              "queryRef": "AnomalySignals.Review Collisions",
+              "nativeQueryRef": "Review Collisions"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "b7a601167c14413cb49e",
+  "position": {
+    "x": 24,
+    "y": 80,
+    "z": 1000,
+    "height": 108,
+    "width": 220,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CollisionOverview"
+                    }
+                  },
+                  "Property": "Avg Severity Score"
+                }
+              },
+              "queryRef": "CollisionOverview.Avg Severity Score",
+              "nativeQueryRef": "Avg Severity Score"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

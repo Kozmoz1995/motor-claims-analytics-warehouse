@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "e282cbf9d725462a8261",
+  "position": {
+    "x": 260,
+    "y": 80,
+    "z": 2000,
+    "height": 108,
+    "width": 220,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleRisk"
+                    }
+                  },
+                  "Property": "Vehicle Severe Rate"
+                }
+              },
+              "queryRef": "VehicleRisk.Vehicle Severe Rate",
+              "nativeQueryRef": "Vehicle Severe Rate"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

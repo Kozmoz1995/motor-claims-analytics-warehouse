@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "b2735113e3c643ad8112",
+  "position": {
+    "x": 260,
+    "y": 80,
+    "z": 2000,
+    "height": 108,
+    "width": 220,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "Review Rate"
+                }
+              },
+              "queryRef": "AnomalySignals.Review Rate",
+              "nativeQueryRef": "Review Rate"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
