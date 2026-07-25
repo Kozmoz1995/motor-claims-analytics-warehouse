@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: Immutable payloads loaded from NYC Open Data.
+    tables:
+      - name: crashes
+        description: One source row per collision.
+        columns:
+          - name: collision_id
+            tests: [not_null]
+      - name: vehicles
+        description: One source row per vehicle involved in a collision.
+      - name: persons
+        description: One source row per person involved in a collision.
